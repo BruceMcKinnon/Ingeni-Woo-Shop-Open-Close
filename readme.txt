@@ -4,7 +4,7 @@ Contributors: Bruce McKinnon
 Tags: carousel, slick slider
 Requires at least: 4.8
 Tested up to: 5.1.1
-Stable tag: 2020.12
+Stable tag: 2021.02
 
 Allows you to temporarily stop new product orders on Woocommerce sites by hiding the Add to Cart button and product listing loop.
 
@@ -39,3 +39,6 @@ Allows you to temporarily stop new product orders on Woocommerce sites by hiding
 v2017.01 - Initial version
 
 v2021.01 - Fixed an issue with loading the plugins CSS file.
+
+v2021.02 - Fixed the Github update checking URL.
+

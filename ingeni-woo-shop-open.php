@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Ingeni Woocommerce Shop Open and Close
-Version: 2021.01
+Version: 2021.02
 Plugin URI: http://ingeni.net
 Author: Bruce McKinnon - ingeni.net
 Author URI: http://ingeni.net
@@ -90,9 +90,9 @@ function ingeni_load_shop_open() {
 	// Init auto-update from GitHub repo
 	require 'plugin-update-checker/plugin-update-checker.php';
 	$myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
-		'https://github.com/BruceMcKinnon/ingeni-yoast-extender',
+		'https://github.com/BruceMcKinnon/Ingeni-Woo-Shop-Open-Close',
 		__FILE__,
-		'ingeni-yoast-extender'
+		'Ingeni-Woo-Shop-Open-Close'
 	);
 }
 add_action( 'wp_enqueue_scripts', 'ingeni_load_shop_open' );
