@@ -1,36 +1,62 @@
-=== Ingeni WooCommerce Shop Open/Close ===
+=== Ingeni Woo Shop Open ===
 
 Contributors: Bruce McKinnon
-Tags: carousel, slick slider
+Tags: woocommerce, seo
 Requires at least: 4.8
 Tested up to: 5.1.1
-Stable tag: 2021.02
+Stable tag: 2021.01
 
-Allows you to temporarily stop new product orders on Woocommerce sites by hiding the Add to Cart button and product listing loop.
-
-
-
+Used in conjunction with Woocommerce. Allows the woo shop to be quickly closed or opened.
 
 == Description ==
 
-* - Images are added by adding them to a folder (hosted on the web server).
+* - Used in conjunction with Woocommerce. 
 
-* - Based on Slick Slider
+* - Allows the woo shop to be quickly closed or opened.
 
 
 
 
 == Installation ==
 
-1. Upload the 'ingeni-woo-shop-open' folder to the '/wp-content/plugins/' directory.
+1. Upload the 'ingeni-woo-product-meta’ folder to the '/wp-content/plugins/' directory.
 
 2. Activate the plugin through the 'Plugins' menu in WordPress.
 
-3. Close or Open the shop using the checkbox in the WooCommerce general settings.
 
 
 
 == Frequently Asked Questions ==
+
+
+Q - I can still see products in the store.
+
+A - It may be the default plugin CSS isn't compatible with your theme.
+
+The plugin adds two additional DIVs on the store and product pages:
+
+<div class="shop_closed">
+
+and:
+
+<div class="shop_closed_after">
+
+
+Your themes CSS can use these classes to hide store content. For example:
+
+.shop_closed {
+    display: none;
+}
+.shop_closed_after {
+    margin: 100px 0;
+}
+.shop_closed_after::after {
+    content: "Sorry, our online store is temporarily closed.";
+    font-size: rem-calc(36);
+    text-align: center;
+}
+
+
 
 
 
@@ -38,7 +64,7 @@ Allows you to temporarily stop new product orders on Woocommerce sites by hiding
 
 v2017.01 - Initial version
 
-v2021.01 - Fixed an issue with loading the plugins CSS file.
+v2021.01 - 15 Jun 2021 - Does not close the shop if the user is an admin
 
-v2021.02 - Fixed the Github update checking URL.
+
 

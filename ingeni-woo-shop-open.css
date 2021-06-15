@@ -2,13 +2,8 @@
     display: none !important;
 }
 .shop_closed_after {
-    padding-bottom: 50px;
+    padding-bottom: rem-calc(50);
     display: block;
-}
-.shop_closed_after::before {
-    content: "This store is currently closed for maintenance!";
-    color: red;
-    font-weight: bold;
 }
 /* This hides the Woo pagination if the shop is closed */
 .shop_closed_after + .woocommerce-pagination {
