@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Ingeni Woocommerce Shop Open and Close
-Version: 2021.01
+Version: 2021.04
 Plugin URI: http://ingeni.net
 Author: Bruce McKinnon - ingeni.net
 Author URI: http://ingeni.net
@@ -29,7 +29,11 @@ Requires : Wordpress 3.x or newer ,PHP 5 +
 
 v2017.01 - Initial version
 
-v2021.01 - 15 Jun 2021 - Does not close the shop if the user is an admin
+v2021.01 - Fixed an issue with loading the plugins CSS file.
+
+v2021.02 - Fixed the Github update checking URL.
+
+v2021.03 & 2021.04 - Released by mistake. No changes over v2021.02.
 
 */
 
@@ -71,9 +75,6 @@ function ingeni_woo_shop_start() {
   if ( ( $closed === 'yes' ) || ($closed == 1) || ($closed === true) ) {
     $extra_class = "shop_closed";
   }
-	if (current_user_can('administrator')) {
-		$extra_class = "shop_open";
-	}
 
   echo ( '<div class="'.$extra_class.'">' );
 }
@@ -83,24 +84,23 @@ add_action('woocommerce_after_add_to_cart_button','ingeni_woo_shop_end');
 function ingeni_woo_shop_end() {
   echo ( '</div>' );
 	$closed = get_option( 'woocommerce_ingeni_shop_closed');
-	if (!current_user_can('administrator')) {
 		if ( ( $closed === 'yes' ) || ($closed == 1) || ($closed === true) ) {
 			echo ( '<div class="shop_closed_after"> </div>');
 		}
-	}
 }
 
 
 function ingeni_load_shop_open() {
-	wp_enqueue_style( 'shop-open', 'ingeni-woo-shop-open.css', false ); 
+	$plugin_url = plugin_dir_url( __FILE__ );
+	wp_enqueue_style( 'shop-open', $plugin_url . 'ingeni-woo-shop-open.css', false ); 
 
 
 	// Init auto-update from GitHub repo
 	require 'plugin-update-checker/plugin-update-checker.php';
 	$myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
-		'https://github.com/BruceMcKinnon/ingeni-yoast-extender',
+		'https://github.com/BruceMcKinnon/Ingeni-Woo-Shop-Open-Close',
 		__FILE__,
-		'ingeni-yoast-extender'
+		'Ingeni-Woo-Shop-Open-Close'
 	);
 }
 add_action( 'wp_enqueue_scripts', 'ingeni_load_shop_open' );
