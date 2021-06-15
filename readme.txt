@@ -4,7 +4,7 @@ Contributors: Bruce McKinnon
 Tags: woocommerce, seo
 Requires at least: 4.8
 Tested up to: 5.1.1
-Stable tag: 2021.04
+Stable tag: 2021.05
 
 Used in conjunction with Woocommerce. Allows the woo shop to be quickly closed or opened.
 
@@ -67,6 +67,9 @@ v2021.01 - Fixed an issue with loading the plugins CSS file.
 v2021.02 - Fixed the Github update checking URL.
 
 v2021.03 & 2021.04 - Released by mistake. No changes over v2021.02.
+
+v2021.05 - If the current user is an admin, don't close the store.
+
 
 
 

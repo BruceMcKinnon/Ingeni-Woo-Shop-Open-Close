@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Ingeni Woocommerce Shop Open and Close
-Version: 2021.04
+Version: 2021.05
 Plugin URI: http://ingeni.net
 Author: Bruce McKinnon - ingeni.net
 Author URI: http://ingeni.net
@@ -34,6 +34,8 @@ v2021.01 - Fixed an issue with loading the plugins CSS file.
 v2021.02 - Fixed the Github update checking URL.
 
 v2021.03 & 2021.04 - Released by mistake. No changes over v2021.02.
+
+v2021.05 - If the current user is an admin, don't close the store.
 
 */
 
@@ -72,8 +74,10 @@ add_action('woocommerce_before_add_to_cart_button','ingeni_woo_shop_start');
 function ingeni_woo_shop_start() {
   $closed = get_option( 'woocommerce_ingeni_shop_closed');
   $extra_class = "shop_open";
-  if ( ( $closed === 'yes' ) || ($closed == 1) || ($closed === true) ) {
-    $extra_class = "shop_closed";
+	if (!current_user_can('administrator')) {
+		if ( ( $closed === 'yes' ) || ($closed == 1) || ($closed === true) ) {
+			$extra_class = "shop_closed";
+		}
   }
 
   echo ( '<div class="'.$extra_class.'">' );
@@ -84,9 +88,11 @@ add_action('woocommerce_after_add_to_cart_button','ingeni_woo_shop_end');
 function ingeni_woo_shop_end() {
   echo ( '</div>' );
 	$closed = get_option( 'woocommerce_ingeni_shop_closed');
+	if (!current_user_can('administrator')) {
 		if ( ( $closed === 'yes' ) || ($closed == 1) || ($closed === true) ) {
 			echo ( '<div class="shop_closed_after"> </div>');
 		}
+	}
 }
 
 
