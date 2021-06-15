@@ -4,7 +4,7 @@ Contributors: Bruce McKinnon
 Tags: woocommerce, seo
 Requires at least: 4.8
 Tested up to: 5.1.1
-Stable tag: 2021.01
+Stable tag: 2021.04
 
 Used in conjunction with Woocommerce. Allows the woo shop to be quickly closed or opened.
 
@@ -31,9 +31,7 @@ Used in conjunction with Woocommerce. Allows the woo shop to be quickly closed o
 
 Q - I can still see products in the store.
 
-A - It may be the default plugin CSS isn't compatible with your theme.
-
-The plugin adds two additional DIVs on the store and product pages:
+A - The plugin added two additional DIVs on the store and product pages:
 
 <div class="shop_closed">
 
@@ -64,7 +62,11 @@ Your themes CSS can use these classes to hide store content. For example:
 
 v2017.01 - Initial version
 
-v2021.01 - 15 Jun 2021 - Does not close the shop if the user is an admin
+v2021.01 - Fixed an issue with loading the plugins CSS file.
+
+v2021.02 - Fixed the Github update checking URL.
+
+v2021.03 & 2021.04 - Released by mistake. No changes over v2021.02.
 
 
 
